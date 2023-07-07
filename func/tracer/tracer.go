@@ -23,9 +23,11 @@ inline int function_was_called(struct pt_regs *ctx) {
 }
 `
 var tracePrg string
+var traceFun string
 
 func init() {
 	flag.StringVar(&tracePrg, "binary", "", "")
+	flag.StringVar(&traceFun, "func", "", "The function to probe")
 }
 
 func main() {
@@ -35,7 +37,7 @@ func main() {
 		panic(err)
 	}
 	if err = bpfModule.AttachUprobe(tracePrg,
-		"main.handlerFunc", uprobeFd, -1); err != nil {
+		traceFun, uprobeFd, -1); err != nil {
 		panic(err)
 	}
 

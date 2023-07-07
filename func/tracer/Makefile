@@ -3,8 +3,8 @@ build:
 
 
 
-tracer:
-	sudo ./tracer --binary ../tracee/func
+run:
+	sudo ./tracer --binary ../tracee/func --binary --func main.handlerFunc
 
 
 clean:

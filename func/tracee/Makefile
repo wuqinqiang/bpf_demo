@@ -1,5 +1,5 @@
 build:
-	 go build -o func func.go
+	 go build -o tracee func.go
 
 
 
