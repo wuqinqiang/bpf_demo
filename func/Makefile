@@ -8,7 +8,7 @@ http:
 
 
 tracer:
-	sudo ./tracer --binary
+	sudo ./tracer --binary func
 
 
 
