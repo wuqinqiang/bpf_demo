@@ -31,6 +31,8 @@ func init() {
 }
 
 func main() {
+	flag.Parse()
+
 	bpfModule := bcc.NewModule(eBPF_Text, []string{})
 	uprobeFd, err := bpfModule.LoadUprobe("function_was_called")
 	if err != nil {
