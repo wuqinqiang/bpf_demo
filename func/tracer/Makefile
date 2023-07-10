@@ -1,10 +1,10 @@
 build:
-	go build -o tracer tracer.go
+	go build -o tracer main.go
 
 
 
 run:
-	sudo ./tracer --binary ../tracee/func --binary --func main.handlerFunc
+	sudo ./tracer --binary ../tracee/tracee  --func main.handlerFunc
 
 
 clean:

@@ -1,11 +1,10 @@
 build:
-	 go build -o tracee func.go
-
+	go build -o tracee func.go
 
 
 http:
-	sudo ./func
+	sudo ./tracee
 
 
 clean:
-	rm -rf func
+	rm -rf tracee
