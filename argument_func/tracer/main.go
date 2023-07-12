@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/binary"
 	"flag"
 	"fmt"
 	"github.com/iovisor/gobpf/bcc"
@@ -64,7 +66,12 @@ func main() {
 	go func() {
 		for {
 			value := <-outputChannel
-			fmt.Println(string(value))
+			var item int64
+			if err = binary.Read(bytes.NewBuffer(value),
+				binary.LittleEndian, &item); err != nil {
+				panic(err)
+			}
+			fmt.Println(item)
 		}
 	}()
 	perfMap.Start()
